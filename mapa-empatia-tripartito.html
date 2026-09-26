@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SI-CATE · Mapa de empatía tripartito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EC;
+    --ink:#1E2A22;
+    --ink-soft:#4B5A50;
+    --line:#C9C2AE;
+    --green:#14432F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:48px 24px 80px;
+  }
+  .page-head{
+    max-width:1040px;
+    margin:0 auto 44px;
+    text-align:center;
+  }
+  .page-head .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+    margin:0 0 6px;
+  }
+  .page-head h1{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:32px;
+    margin:0 0 10px;
+    color:var(--green);
+  }
+  .page-head p{
+    max-width:620px;
+    margin:0 auto;
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  .canvases{
+    display:flex;
+    flex-direction:column;
+    gap:56px;
+    max-width:1040px;
+    margin:0 auto;
+  }
+
+  .persona-block{ }
+  .persona-tag{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:14px;
+  }
+  .persona-tag .name{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:20px;
+  }
+  .persona-tag .role{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  .diamond-card{
+    position:relative;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px;
+  }
+
+  .quad-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap:2px;
+    background:var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    position:relative;
+    min-height:460px;
+  }
+
+  .quad{
+    background:#fff;
+    padding:20px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+  }
+  .quad .qhead{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.01em;
+  }
+  .quad .notes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-content:flex-start;
+  }
+  .note{
+    font-size:13px;
+    line-height:1.4;
+    padding:9px 11px;
+    border-radius:10px;
+    max-width:210px;
+  }
+
+  .center-badge{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    background:#fff;
+    border:2px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:20px;
+    z-index:2;
+  }
+  .cross{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+  }
+
+  /* persona color themes */
+  .theme-teal .qhead{color:#085041;}
+  .theme-teal .note{background:#E1F5EE;color:#04342C;}
+  .theme-teal .center-badge{color:#085041;border-color:#5DCAA5;}
+  .theme-teal .persona-tag .name{color:#085041;}
+
+  .theme-coral .qhead{color:#712B13;}
+  .theme-coral .note{background:#FAECE7;color:#4A1B0C;}
+  .theme-coral .center-badge{color:#712B13;border-color:#F0997B;}
+  .theme-coral .persona-tag .name{color:#712B13;}
+
+  .theme-purple .qhead{color:#3C3489;}
+  .theme-purple .note{background:#EEEDFE;color:#26215C;}
+  .theme-purple .center-badge{color:#3C3489;border-color:#AFA9EC;}
+  .theme-purple .persona-tag .name{color:#3C3489;}
+
+  @media (max-width:640px){
+    .quad-grid{min-height:0;}
+    .quad{padding:16px;}
+    .center-badge{width:72px;height:72px;font-size:15px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <p class="eyebrow">SI-CATE · Universidad del Quindío · Fase 1: Empatía</p>
+  <h1>Mapa de empatía tripartito</h1>
+  <p>Síntesis de las tres perspectivas clave frente a la corrupción en activos de TI del Estado: administrador de TI, auditor de control interno y ciudadano.</p>
+</div>
+
+<div class="canvases">
+
+  <!-- ADMINISTRADOR DE TI -->
+  <div class="persona-block theme-teal">
+    <div class="persona-tag">
+      <span class="name">Administrador de TI público</span>
+      <span class="role">Responsable de inventario y equipos en la entidad</span>
+    </div>
+    <div class="diamond-card">
+      <div class="quad-grid">
+        <svg class="cross" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="0" y1="0" x2="100" y2="100" stroke="#C9C2AE" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+          <line x1="100" y1="0" x2="0" y2="100" stroke="#C9C2AE" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="quad">
+          <div class="qhead">Qué piensa y siente</div>
+          <div class="notes">
+            <div class="note">Teme la responsabilidad disciplinaria por pérdida de inventario o repuestos</div>
+            <div class="note">Quiere tener control real sobre sus equipos</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué ve y oye</div>
+          <div class="notes">
+            <div class="note">Equipos que salen de la sede y no vuelven, o se entregan sin piezas internas</div>
+            <div class="note">Oye rumores de "bajas express"</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué le duele</div>
+          <div class="notes">
+            <div class="note">Impotencia por falta de herramientas técnicas de control de hardware</div>
+            <div class="note">Registros manuales vulnerables en Excel</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué necesita</div>
+          <div class="notes">
+            <div class="note">Trazabilidad automática por componente</div>
+            <div class="note">Bloqueo de equipos que operen fuera de la red de la entidad</div>
+          </div>
+        </div>
+        <div class="center-badge">TI</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDITOR -->
+  <div class="persona-block theme-coral">
+    <div class="persona-tag">
+      <span class="name">Auditor / enlace de control interno</span>
+      <span class="role">Verifica legalidad y valor de las contrataciones</span>
+    </div>
+    <div class="diamond-card">
+      <div class="quad-grid">
+        <svg class="cross" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="0" y1="0" x2="100" y2="100" stroke="#C9C2AE" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+          <line x1="100" y1="0" x2="0" y2="100" stroke="#C9C2AE" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="quad">
+          <div class="qhead">Qué piensa y siente</div>
+          <div class="notes">
+            <div class="note">Frustración al auditar contratos pasados y encontrar precios inflados</div>
+            <div class="note">El presupuesto ya se ejecutó cuando detecta el problema</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué ve y oye</div>
+          <div class="notes">
+            <div class="note">Licitaciones públicas con un único proponente</div>
+            <div class="note">Sobrecostos del 30% al 80% frente al mercado comercial</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué le duele</div>
+          <div class="notes">
+            <div class="note">No existen bases de datos comparativas automatizadas en tiempo real</div>
+            <div class="note">Verificación de precios manual durante la licitación</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué necesita</div>
+          <div class="notes">
+            <div class="note">Alertas automáticas de sobreprecio</div>
+            <div class="note">Verificación antes de adjudicar o firmar la orden de compra</div>
+          </div>
+        </div>
+        <div class="center-badge">AU</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CIUDADANO -->
+  <div class="persona-block theme-purple">
+    <div class="persona-tag">
+      <span class="name">Ciudadano</span>
+      <span class="role">Contribuyente y usuario final de los servicios del Estado</span>
+    </div>
+    <div class="diamond-card">
+      <div class="quad-grid">
+        <svg class="cross" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line x1="0" y1="0" x2="100" y2="100" stroke="#C9C2AE" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+          <line x1="100" y1="0" x2="0" y2="100" stroke="#C9C2AE" stroke-width="0.4" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="quad">
+          <div class="qhead">Qué piensa y siente</div>
+          <div class="notes">
+            <div class="note">Indignación ante el desperdicio del erario público</div>
+            <div class="note">Falta de transparencia en la contratación del Estado</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué ve y oye</div>
+          <div class="notes">
+            <div class="note">Escándalos recurrentes de corrupción en noticias</div>
+            <div class="note">Pérdidas de activos informáticos en alcaldías y gobernaciones</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué le duele</div>
+          <div class="notes">
+            <div class="note">Sensación de impunidad</div>
+            <div class="note">Deterioro de la confianza en las instituciones públicas</div>
+          </div>
+        </div>
+        <div class="quad">
+          <div class="qhead">Qué necesita</div>
+          <div class="notes">
+            <div class="note">Garantía de que sus impuestos se usen a precios justos</div>
+            <div class="note">Que los bienes permanezcan al servicio de la comunidad</div>
+          </div>
+        </div>
+        <div class="center-badge">CI</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
