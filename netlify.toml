@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/mapa-empatia-tripartito.html"
+  to = "/"
+  status = 301
