@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SI-CATE · Diagrama de Ishikawa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EC;
+    --ink:#1E2A22;
+    --ink-soft:#4B5A50;
+    --line:#C9C2AE;
+    --green:#14432F;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    padding:48px 24px 80px;
+  }
+  .page-head{
+    max-width:1100px;
+    margin:0 auto 36px;
+    text-align:center;
+  }
+  .page-head .eyebrow{
+    font-size:13px;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+    margin:0 0 6px;
+  }
+  .page-head h1{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:32px;
+    margin:0 0 10px;
+    color:var(--green);
+  }
+  .page-head p{
+    max-width:680px;
+    margin:0 auto;
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.6;
+  }
+
+  .diagram-card{
+    max-width:1180px;
+    margin:0 auto 28px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:20px 16px 8px;
+  }
+
+  .diagram-card svg{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  .cause-title{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:16px;
+  }
+  .sub-text{
+    font-family:'Inter',sans-serif;
+    font-weight:500;
+    font-size:12.5px;
+  }
+  .problem-text{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:16px;
+    fill:var(--green);
+  }
+
+  .legend{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 22px;
+    justify-content:center;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .swatch{width:11px;height:11px;border-radius:3px;display:inline-block;}
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <p class="eyebrow">SI-CATE · Universidad del Quindío · Fase 2: Definición</p>
+  <h1>Diagrama de Ishikawa</h1>
+  <p>Análisis de causa raíz enfocado en los dos momentos críticos de la corrupción en activos de TI del Estado: los sobrecostos en la adquisición y la fuga de inventario en la custodia y operación.</p>
+</div>
+
+<div class="diagram-card">
+<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- ===== BONES (behind everything) ===== -->
+  <g stroke="#C9C2AE" stroke-width="9" stroke-linecap="round" fill="none">
+    <!-- top bones -->
+    <line x1="430" y1="390" x2="300" y2="132"/>
+    <line x1="650" y1="390" x2="520" y2="132"/>
+    <line x1="870" y1="390" x2="740" y2="132"/>
+    <!-- bottom bones -->
+    <line x1="540" y1="390" x2="410" y2="660"/>
+    <line x1="760" y1="390" x2="630" y2="660"/>
+    <line x1="980" y1="390" x2="850" y2="660"/>
+  </g>
+
+  <!-- ===== SPINE ===== -->
+  <line x1="190" y1="390" x2="1110" y2="390" stroke="#14432F" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- ===== TAIL ===== -->
+  <path d="M190,390 L95,318 L152,390 L95,462 Z" fill="#14432F"/>
+
+  <!-- ===== HEAD ===== -->
+  <polygon points="1108,333 1228,390 1108,447" fill="#14432F"/>
+  <circle cx="1158" cy="390" r="7" fill="#F6F4EC"/>
+
+  <!-- ===== PROBLEM BOX ===== -->
+  <rect x="1238" y="333" width="158" height="114" rx="16" fill="#FFFFFF" stroke="#14432F" stroke-width="2"/>
+  <text class="problem-text" x="1317" y="378" text-anchor="middle">Corrupción en</text>
+  <text class="problem-text" x="1317" y="399" text-anchor="middle">activos de TI</text>
+  <text class="problem-text" x="1317" y="420" text-anchor="middle">del Estado:</text>
+  <text class="problem-text" x="1317" y="441" text-anchor="middle" style="font-size:14px;">sobrecostos y fuga</text>
+
+  <!-- ================= TOP BRANCH 1 : ADQUISICIÓN (rojo) ================= -->
+  <g>
+    <rect x="628" y="75" width="224" height="50" rx="14" fill="#FBEAE6" stroke="#A9341C" stroke-width="1.5"/>
+    <text class="cause-title" x="740" y="106" text-anchor="middle" fill="#A9341C">Adquisición y Contratación</text>
+
+    <rect x="681.1" y="167.76" width="175" height="42" rx="10" fill="#FBEAE6" stroke="#A9341C" stroke-width="1"/>
+    <text class="sub-text" x="768.6" y="184.76" text-anchor="middle" fill="#7A2513">Pliegos direccionados</text>
+    <text class="sub-text" x="768.6" y="199.76" text-anchor="middle" fill="#7A2513">a un solo proponente</text>
+
+    <rect x="717.5" y="240" width="175" height="42" rx="10" fill="#FBEAE6" stroke="#A9341C" stroke-width="1"/>
+    <text class="sub-text" x="805" y="257" text-anchor="middle" fill="#7A2513">Cotizaciones sin comparar</text>
+    <text class="sub-text" x="805" y="272" text-anchor="middle" fill="#7A2513">con precios TVEC</text>
+
+    <rect x="753.9" y="312.24" width="175" height="42" rx="10" fill="#FBEAE6" stroke="#A9341C" stroke-width="1"/>
+    <text class="sub-text" x="841.4" y="329.24" text-anchor="middle" fill="#7A2513">Sin auditoría de precios</text>
+    <text class="sub-text" x="841.4" y="344.24" text-anchor="middle" fill="#7A2513">en tiempo real</text>
+  </g>
+
+  <!-- ================= TOP BRANCH 2 : CUSTODIA (naranja) ================= -->
+  <g>
+    <rect x="408" y="75" width="224" height="50" rx="14" fill="#FBF0DC" stroke="#C98A2E" stroke-width="1.5"/>
+    <text class="cause-title" x="520" y="106" text-anchor="middle" fill="#8A5A12">Custodia y Operación</text>
+
+    <rect x="461.1" y="167.76" width="175" height="42" rx="10" fill="#FBF0DC" stroke="#C98A2E" stroke-width="1"/>
+    <text class="sub-text" x="548.6" y="184.76" text-anchor="middle" fill="#6E4A10">Equipos usados fuera</text>
+    <text class="sub-text" x="548.6" y="199.76" text-anchor="middle" fill="#6E4A10">de la entidad</text>
+
+    <rect x="497.5" y="240" width="175" height="42" rx="10" fill="#FBF0DC" stroke="#C98A2E" stroke-width="1"/>
+    <text class="sub-text" x="585" y="257" text-anchor="middle" fill="#6E4A10">Desmantelamiento de</text>
+    <text class="sub-text" x="585" y="272" text-anchor="middle" fill="#6E4A10">RAM, SSD y GPU</text>
+
+    <rect x="533.9" y="312.24" width="175" height="42" rx="10" fill="#FBF0DC" stroke="#C98A2E" stroke-width="1"/>
+    <text class="sub-text" x="621.4" y="329.24" text-anchor="middle" fill="#6E4A10">Actas de baja</text>
+    <text class="sub-text" x="621.4" y="344.24" text-anchor="middle" fill="#6E4A10">ficticias</text>
+  </g>
+
+  <!-- ================= TOP BRANCH 3 : TECNOLOGÍA (amarillo) ================= -->
+  <g>
+    <rect x="188" y="75" width="224" height="50" rx="14" fill="#FFF7DC" stroke="#D9B23C" stroke-width="1.5"/>
+    <text class="cause-title" x="300" y="106" text-anchor="middle" fill="#7A5D00">Tecnología y Herramientas</text>
+
+    <rect x="241.1" y="167.76" width="175" height="42" rx="10" fill="#FFF7DC" stroke="#D9B23C" stroke-width="1"/>
+    <text class="sub-text" x="328.6" y="184.76" text-anchor="middle" fill="#5C4600">Sin firma de hardware</text>
+    <text class="sub-text" x="328.6" y="199.76" text-anchor="middle" fill="#5C4600">por equipo</text>
+
+    <rect x="277.5" y="240" width="175" height="42" rx="10" fill="#FFF7DC" stroke="#D9B23C" stroke-width="1"/>
+    <text class="sub-text" x="365" y="257" text-anchor="middle" fill="#5C4600">Sin geofencing ni</text>
+    <text class="sub-text" x="365" y="272" text-anchor="middle" fill="#5C4600">bloqueo por VPN</text>
+
+    <rect x="313.9" y="312.24" width="175" height="42" rx="10" fill="#FFF7DC" stroke="#D9B23C" stroke-width="1"/>
+    <text class="sub-text" x="401.4" y="329.24" text-anchor="middle" fill="#5C4600">Sin comparador de</text>
+    <text class="sub-text" x="401.4" y="344.24" text-anchor="middle" fill="#5C4600">precios en línea</text>
+  </g>
+
+  <!-- ================= BOTTOM BRANCH 1 : GOBERNANZA (verde) ================= -->
+  <g>
+    <rect x="738" y="665" width="224" height="50" rx="14" fill="#E3F5EA" stroke="#1F7A4D" stroke-width="1.5"/>
+    <text class="cause-title" x="850" y="696" text-anchor="middle" fill="#14432F">Gobernanza y Control</text>
+
+    <rect x="791.1" y="579.6" width="175" height="42" rx="10" fill="#E3F5EA" stroke="#1F7A4D" stroke-width="1"/>
+    <text class="sub-text" x="878.6" y="596.6" text-anchor="middle" fill="#0F3323">Bajas sin doble firma</text>
+    <text class="sub-text" x="878.6" y="611.6" text-anchor="middle" fill="#0F3323">electrónica</text>
+
+    <rect x="827.5" y="504" width="175" height="42" rx="10" fill="#E3F5EA" stroke="#1F7A4D" stroke-width="1"/>
+    <text class="sub-text" x="915" y="521" text-anchor="middle" fill="#0F3323">Sin escalamiento a</text>
+    <text class="sub-text" x="915" y="536" text-anchor="middle" fill="#0F3323">control interno</text>
+
+    <rect x="863.9" y="428.4" width="175" height="42" rx="10" fill="#E3F5EA" stroke="#1F7A4D" stroke-width="1"/>
+    <text class="sub-text" x="951.4" y="445.4" text-anchor="middle" fill="#0F3323">Inventario manual</text>
+    <text class="sub-text" x="951.4" y="460.4" text-anchor="middle" fill="#0F3323">en Excel</text>
+  </g>
+
+  <!-- ================= BOTTOM BRANCH 2 : FACTOR HUMANO (azul) ================= -->
+  <g>
+    <rect x="518" y="665" width="224" height="50" rx="14" fill="#E6EFFC" stroke="#3B6FBE" stroke-width="1.5"/>
+    <text class="cause-title" x="630" y="696" text-anchor="middle" fill="#1F4E8C">Factor Humano</text>
+
+    <rect x="571.1" y="579.6" width="175" height="42" rx="10" fill="#E6EFFC" stroke="#3B6FBE" stroke-width="1"/>
+    <text class="sub-text" x="658.6" y="596.6" text-anchor="middle" fill="#173C6B">Temor a sanciones</text>
+    <text class="sub-text" x="658.6" y="611.6" text-anchor="middle" fill="#173C6B">sin apoyo técnico</text>
+
+    <rect x="607.5" y="504" width="175" height="42" rx="10" fill="#E6EFFC" stroke="#3B6FBE" stroke-width="1"/>
+    <text class="sub-text" x="695" y="521" text-anchor="middle" fill="#173C6B">Posible colusión con</text>
+    <text class="sub-text" x="695" y="536" text-anchor="middle" fill="#173C6B">proveedores</text>
+
+    <rect x="643.9" y="428.4" width="175" height="42" rx="10" fill="#E6EFFC" stroke="#3B6FBE" stroke-width="1"/>
+    <text class="sub-text" x="731.4" y="445.4" text-anchor="middle" fill="#173C6B">Débil cultura de</text>
+    <text class="sub-text" x="731.4" y="460.4" text-anchor="middle" fill="#173C6B">control interno</text>
+  </g>
+
+  <!-- ================= BOTTOM BRANCH 3 : TRANSPARENCIA (morado) ================= -->
+  <g>
+    <rect x="298" y="665" width="224" height="50" rx="14" fill="#EFEAFB" stroke="#6B4FC9" stroke-width="1.5"/>
+    <text class="cause-title" x="410" y="696" text-anchor="middle" fill="#4A2F8C">Transparencia y Confianza</text>
+
+    <rect x="351.1" y="579.6" width="175" height="42" rx="10" fill="#EFEAFB" stroke="#6B4FC9" stroke-width="1"/>
+    <text class="sub-text" x="438.6" y="596.6" text-anchor="middle" fill="#372167">Sensación de impunidad</text>
+    <text class="sub-text" x="438.6" y="611.6" text-anchor="middle" fill="#372167">ciudadana</text>
+
+    <rect x="387.5" y="504" width="175" height="42" rx="10" fill="#EFEAFB" stroke="#6B4FC9" stroke-width="1"/>
+    <text class="sub-text" x="475" y="521" text-anchor="middle" fill="#372167">Escándalos recurrentes</text>
+    <text class="sub-text" x="475" y="536" text-anchor="middle" fill="#372167">de corrupción</text>
+
+    <rect x="423.9" y="428.4" width="175" height="42" rx="10" fill="#EFEAFB" stroke="#6B4FC9" stroke-width="1"/>
+    <text class="sub-text" x="511.4" y="445.4" text-anchor="middle" fill="#372167">Deterioro de</text>
+    <text class="sub-text" x="511.4" y="460.4" text-anchor="middle" fill="#372167">confianza institucional</text>
+  </g>
+
+</svg>
+</div>
+
+<div class="legend">
+  <span><span class="swatch" style="background:#A9341C;"></span>Adquisición y Contratación — sobrecostos</span>
+  <span><span class="swatch" style="background:#C98A2E;"></span>Custodia y Operación — fuga de activos</span>
+  <span><span class="swatch" style="background:#D9B23C;"></span>Tecnología y Herramientas</span>
+  <span><span class="swatch" style="background:#1F7A4D;"></span>Gobernanza y Control</span>
+  <span><span class="swatch" style="background:#3B6FBE;"></span>Factor Humano</span>
+  <span><span class="swatch" style="background:#6B4FC9;"></span>Transparencia y Confianza</span>
+</div>
+
+</body>
+</html>
